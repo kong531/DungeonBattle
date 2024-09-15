@@ -4,7 +4,6 @@
 package Gui;
 
 //Import specific libraries
-//import java.awt.*;
 import java.awt.Font;
 import java.awt.Dimension;
 import java.awt.GraphicsEnvironment;
