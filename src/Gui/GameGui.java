@@ -3,7 +3,16 @@
 
 package Gui;
 
-import java.awt.*;
+//Import specific libraries
+//import java.awt.*;
+import java.awt.Font;
+import java.awt.Dimension;
+import java.awt.GraphicsEnvironment;
+import java.awt.GraphicsDevice;
+import java.awt.GridLayout;
+import java.awt.Color;
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
