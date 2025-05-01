@@ -161,26 +161,26 @@ public class GameGui extends JFrame implements ActionListener {
         // menuFrame.setVisible(true);
 
         // Creates the planes
-        // createTopPanel();
-        // createMenuPanel();
-        // createNewPanel();
-        // createBotPanel();
-        // createTextPanel();
-        // createPrepPanel();
-        // createPlayerInfo();
-        // createEnemyInfo();
-        // createInfoPanel();
-        // createExitPanel();
+        createTopPanel();
+        createMenuPanel();
+        createNewPanel();
+        createBotPanel();
+        createTextPanel();
+        createPrepPanel();
+        createPlayerInfo();
+        createEnemyInfo();
+        createInfoPanel();
+        createExitPanel();
 
         // Create the menu frame
-        // createMenuFrame();
+        createMenuFrame();
 
         // Create the start frame
 
         // Create the combat frame
 
         // Adds the panels to the client
-        // addPanelsToFrame();
+        addPanelsToFrame();
 
         // Adds other settings and action listeners
         additionalSettings();
