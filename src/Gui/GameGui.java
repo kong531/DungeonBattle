@@ -14,6 +14,7 @@ import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.Toolkit;
 import java.util.Random;
 
 import javax.swing.JButton;
@@ -60,9 +61,9 @@ public class GameGui extends JFrame implements ActionListener {
     private JScrollPane scroll = new JScrollPane(output);
 
     // Frames for each window
-    private JFrame menuFrame = new JFrame("Menu");
-    private JFrame startFrame = new JFrame("Start");
-    private JFrame gameFrame = new JFrame("Game");
+    // private JFrame menuFrame = new JFrame("Menu");
+    // private JFrame startFrame = new JFrame("Start");
+    // private JFrame gameFrame = new JFrame("Game");
 
     // Panels for the menu and game's layout
     private JPanel topPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
@@ -196,7 +197,7 @@ public class GameGui extends JFrame implements ActionListener {
 
     public void createMenuFrame() {
         // Add the topPanel to menuFrame
-        menuFrame.add(topPanel);
+        // menuFrame.add(topPanel);
 
         // Sets the background color of topPanel
         topPanel.setBackground(Color.black);
@@ -207,7 +208,7 @@ public class GameGui extends JFrame implements ActionListener {
         // Set the font of title
         title.setFont(titleFont);
         // Sets the foreground color of the title
-        title.setForeground(Color.black);
+        title.setForeground(Color.white);
     }
 
     // Function to set up the top panel
@@ -279,7 +280,7 @@ public class GameGui extends JFrame implements ActionListener {
     // Function to set up the menu panel
     private void createMenuPanel() {
         // Sets tghe background color of menuPanel
-        // menuPanel.setBackground(Color.black);
+        menuPanel.setBackground(Color.black);
 
         // Sets the bounds of menuPanel
         menuPanel.setBounds(500, 550, 300, 100);
