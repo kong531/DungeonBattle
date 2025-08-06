@@ -94,10 +94,10 @@ public class GameGui extends JFrame implements ActionListener {
     public String playerClass;
 
     // Stats for the enemy character
-    int enemyHealth = enemy.health;
-    int enemyDamage = enemy.damage;
-    String enemyWeapon = enemy.weapon;
-    String enemyClass = enemy.enemyClass;
+    public int enemyHealth;
+    public int enemyDamage;
+    public String enemyWeapon;
+    public String enemyClass;
 
     public void reset() {
         // Values to change the characters' stats
@@ -441,6 +441,28 @@ public class GameGui extends JFrame implements ActionListener {
         info.setBackground(Color.white);
     }
 
+    private void noHealth() {
+        if (playerHealth <= 0) {
+            playerHealth = 0;
+            player = new Player(playerHealth, damage, playerWeapon, playerClass);
+            playerInfo.setText("");
+            playerInfo.append(player.toString());
+            output.append("You are dead! Game over!");
+            combatPanel.setVisible(false);
+            exitPanel.setVisible(true);
+        }
+
+        else if (enemyHealth <= 0) {
+            enemyHealth = 0;
+            enemy = new Enemy(enemyHealth, enemyWeapon, enemyDamage, enemyClass);
+            output.append("You have defeated the enemy!\n");
+            enemyInfo.setText("");
+            enemyInfo.append(enemy.toString());
+            combatPanel.setVisible(false);
+            exitPanel.setVisible(true);
+        }
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         // Sets the action command of a button depending on which ones is pressed
@@ -535,22 +557,108 @@ public class GameGui extends JFrame implements ActionListener {
 
         // When the stab button is pressed
         else if (callingBtn.equals("Stab")) {
+            damage = rand.nextInt(player.damage);
+            taken = rand.nextInt(enemy.getDamage());
 
+            output.append("You deal " + damage + " damage\n");
+            output.append("The enemy dealt " + taken + " to you\n");
+
+            playerHealth -= taken;
+            enemyHealth -= damage;
+
+            damage = 50;
+            enemyDamage = 20;
+
+            player = new Player(playerHealth, damage, playerWeapon, playerClass);
+            enemy = new Enemy(enemyHealth, enemyWeapon, enemyDamage, enemyClass);
+            playerInfo.setText("");
+            enemyInfo.setText("");
+            playerInfo.append(player.toString());
+            enemyInfo.append(enemy.toString());
+
+            noHealth();
         }
 
         // When the punch button is pressed
         else if (callingBtn.equals("Punch")) {
+            damage = rand.nextInt(player.damage);
+            taken = rand.nextInt(enemy.getDamage());
 
+            output.append("You deal " + damage + " damage\n");
+            output.append("The enemy dealt " + taken + " to you\n");
+
+            playerHealth -= taken;
+            enemyHealth -= damage;
+
+            damage = 40;
+            enemyDamage = 20;
+
+            player = new Player(playerHealth, damage, playerWeapon, playerClass);
+            enemy = new Enemy(enemyHealth, enemyWeapon, enemyDamage, enemyClass);
+            playerInfo.setText("");
+            enemyInfo.setText("");
+            playerInfo.append(player.toString());
+            enemyInfo.append(enemy.toString());
+
+            noHealth();
         }
 
         // When the kick button is pressed
         else if (callingBtn.equals("Kick")) {
+            damage = rand.nextInt(player.damage);
+            taken = rand.nextInt(enemy.getDamage());
 
+            output.append("You deal " + damage + " damage\n");
+            output.append("The enemy dealt " + taken + " to you\n");
+
+            playerHealth -= taken;
+            enemyHealth -= damage;
+
+            damage = 45;
+            enemyDamage = 20;
+
+            player = new Player(playerHealth, damage, playerWeapon, playerClass);
+            enemy = new Enemy(enemyHealth, enemyWeapon, enemyDamage, enemyClass);
+            playerInfo.setText("");
+            enemyInfo.setText("");
+            playerInfo.append(player.toString());
+            enemyInfo.append(enemy.toString());
+
+            noHealth();
         }
 
         // When the guard button is pressed
         else if (callingBtn.equals("Guard")) {
+            damage = rand.nextInt(player.damage);
+            taken = rand.nextInt(enemy.getDamage());
+            block = 10;
+            int diff = taken - block;
 
+            if (taken > block) {
+                output.append("You block 10 damage\n");
+                output.append("But the enemy deals " + diff + " damage\n");
+                playerHealth -= diff;
+            }
+
+            else {
+                output.append("You block " + taken + " damage\n");
+            }
+
+            taken = 0;
+
+            playerHealth -= taken;
+
+            damage = 30;
+            enemyDamage = 20;
+
+            player = new Player(playerHealth, damage, playerWeapon, playerClass);
+            enemy = new Enemy(enemyHealth, enemyWeapon, enemyDamage, enemyClass);
+            playerInfo.setText("");
+            enemyInfo.setText("");
+            playerInfo.append(player.toString());
+            enemyInfo.append(enemy.toString());
+
+            noHealth();
         }
     }
 }

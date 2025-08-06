@@ -17,10 +17,10 @@ public class Enemy {
         enemyClass = "Ogre";
     }
 
-    public Enemy(int health, int damage, String weapon, String enemyClass) {
+    public Enemy(int health, String weapon, int damage, String enemyClass) {
         this.health = health;
-        this.damage = damage;
         this.weapon = weapon;
+        this.damage = damage;
         this.enemyClass = enemyClass;
     }
 
